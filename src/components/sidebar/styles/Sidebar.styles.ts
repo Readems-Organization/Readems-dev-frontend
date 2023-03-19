@@ -1,92 +1,79 @@
-import { css } from '@emotion/react';
 import styled from 'styled-components';
-
-// interface Istyle {
-//   style?: SectionProps;
-// }
 
 export type SectionProps = {
   styleType?: 'primary' | 'secondary';
 };
 
-export const StyledSidebarContainer = styled.div`
-  max-width: 180px;
-  width: 100%;
-  height: 100vh;
-  padding: 1rem;
-  border: 2px dashed blue;
-  position: fixed;
-  top: 0;
-  right: 0;
+export const StyledSidebarContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.textColor};
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  width: 100%;
+  min-height: 100vh;
+  background-color: ${(props) => props.theme.colors.primaryColor};
+  padding: 2rem 1rem 1rem 1rem;
+  transition: transform 1s;
+
+  @media only screen and (max-width: 450px) {
+    width: 70%;
+    top: 65px;
+    min-height: calc(100vh -65px);
+  }
+`;
+
+export const StyledSidebarListWrapper = styled.div`
+  margin-top: 20px;
+  h4 {
+    font-size: 1.5rem;
+    color: ${(props) => props.theme.colors.white};
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 `;
 
 export const StyledSidebarList = styled.ul`
-  position: relative;
-  transform: skewX(0deg);
-  margin-top: 20px;
+  a {
+    display: flex;
+    padding: 10px 15px;
+    transition: 0.2s;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-transform: capitalize;
+    color: #fff;
+  }
 `;
 
 export const StyledSidebarListItem = styled.li<SectionProps>`
   position: relative;
-  width: 160px;
-  background: #3e3f46;
-  padding: 15px;
-  transition: 0.5s;
+  transition: 0.5s all;
+`;
 
-  :hover {
-    background: #33a3ee;
-    transform: translateX(-50px);
-  }
+export const StyledSidebarButton = styled.button`
+  position: absolute;
+  transform: translateX(38px);
+  top: 20px;
+  right: 6px;
+  width: 35px;
+  height: 35px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.primaryColor};
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #fff;
 
-  :hover a {
-    color: #fff;
-  }
-
-  :hover::before {
-    background: #1f5378;
-  }
-  :hover::after {
-    background: #2982b9;
-  }
-
-  ::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -40px;
-    width: 40px;
-    height: 100%;
-    background: #2e3133;
-    transform-origin: right;
-    transform: skewY(45deg);
-    transition: 0.5s;
-  }
-
-  ::after {
-    content: '';
-    position: absolute;
-    top: -40px;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: #35383e;
-    transform-origin: bottom;
-    transform: skewX(45deg);
-    transition: 0.5s;
-  }
-
-  :last-child::after {
-    box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  a {
-    color: #999;
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: 0.5s;
-    text-decoration: none;
+  @media only screen and (max-width: 450px) {
+    display: none;
   }
 `;
