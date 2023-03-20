@@ -15,6 +15,7 @@ export const colors = {
   inputGray: '#CED2D6',
   blueTint600: '#EDFAFD',
   blueTint200: '#65D6EA',
+  primaryColor: '#1c4edf',
   rgbColor: 'rgb(0, 0, 0, 0.125)',
 };
 
