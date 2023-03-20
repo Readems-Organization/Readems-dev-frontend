@@ -7,8 +7,6 @@ const App: FC = (): ReactElement => {
 
   return (
     <BrowserRouter>
-      <h1>Home</h1>
-
       <Routes>
         <Route path="/" element={<Sidebar visible={navVisible} show={showNavbar} navVisible={navVisible} />} />
       </Routes>
